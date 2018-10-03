@@ -9,7 +9,7 @@ This is the report for
 
 ## Klassdiagram
 
-The model is in the file [`UTIL.png`](UTIL.png):
+The model is in the file [`Package util class diagram.png`](UTIL.png):
 
 <center>
     <img src="Package util class diagram.png" width="80%">

@@ -1,4 +1,4 @@
-package expr;
+package model.expr;
 
 class Sub extends BinaryExpr {
     Sub(Expr expr1, Expr expr2) {

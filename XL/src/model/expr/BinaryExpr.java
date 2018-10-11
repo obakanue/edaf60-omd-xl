@@ -1,4 +1,4 @@
-package expr;
+package model.expr;
 
 abstract class BinaryExpr extends Expr {
     private Expr expr1;

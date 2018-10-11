@@ -1,4 +1,4 @@
-package expr;
+package model.expr;
 
 class Add extends BinaryExpr {
     Add(Expr expr1, Expr expr2) {

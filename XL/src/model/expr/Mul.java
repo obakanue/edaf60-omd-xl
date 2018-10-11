@@ -1,4 +1,4 @@
-package expr;
+package model.expr;
 
 class Mul extends BinaryExpr {
     Mul(Expr expr1, Expr expr2) {

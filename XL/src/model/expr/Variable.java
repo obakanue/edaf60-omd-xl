@@ -1,4 +1,4 @@
-package expr;
+package model.expr;
 
 class Variable extends Expr {
     private String name;

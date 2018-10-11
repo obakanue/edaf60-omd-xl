@@ -1,4 +1,4 @@
-package expr;
+package model.expr;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -17,9 +17,9 @@ import util.XLException;
  * 
  * 
  * 
- *    expr ::= term {addop term}
+ *    model.expr ::= term {addop term}
  *    term ::= factor {mulop factor}
- *    factor ::= number | variable | &quot;(&quot; expr &quot;)&quot;
+ *    factor ::= number | variable | &quot;(&quot; model.expr &quot;)&quot;
  *    addop ::= &quot;+&quot; | &quot;-&quot;
  *    mulop ::= &quot;*&quot; | &quot;/&quot;
  * 

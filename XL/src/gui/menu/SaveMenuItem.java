@@ -20,10 +20,10 @@ class SaveMenuItem extends OpenMenuItem {
         Set<Entry<String, Cell>> entries = sheet.getEntries();
         for(Entry<String, Cell> index : entries){
             //vill ha address nedan
-            out.print(index.);
+            out.print(index.getKey());
             out.print('=');
             //vill ha value nedan om comment string
-            out.println(index.);
+            out.println(index.getValue().toString());
         }
         flush();
         close();

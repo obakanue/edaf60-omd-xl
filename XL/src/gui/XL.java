@@ -51,8 +51,8 @@ public class XL extends JFrame implements Printable {
     	return sheet;
     }
     
-    public Cell getCurrentCell(){
-    	return sheet.getCell(currentCell.getAddress());
+    public CurrentCell getCurrentCell(){
+    	return currentCell;
     }
 
     public int print(Graphics g, PageFormat pageFormat, int page) {

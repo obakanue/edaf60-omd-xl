@@ -15,6 +15,9 @@ public class CurrentCell extends Observable{
         return address;
     }
 
+    public void setAddress(String address){
+    	this.address = address;
+    }
 
 
 }

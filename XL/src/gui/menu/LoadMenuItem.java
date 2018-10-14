@@ -29,7 +29,7 @@ class LoadMenuItem extends OpenMenuItem {
                 String address = line.substring(0,address);
                 String value = line.substring(address + 1);
                 loadSheet.put(address, loadCellFactory.cell(sheet, value));
-                sheet = loadSheet;
+
             }
 
         }catch

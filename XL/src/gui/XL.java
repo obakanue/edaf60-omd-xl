@@ -48,6 +48,10 @@ public class XL extends JFrame implements Printable {
     public Sheet getSheet(){
     	return sheet;
     }
+    
+    public Cell getCurrentCell(){
+    	return currentCell;
+    }
 
     public int print(Graphics g, PageFormat pageFormat, int page) {
         if (page > 0)

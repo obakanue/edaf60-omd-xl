@@ -7,12 +7,12 @@ import java.util.*;
 
 public class SlotLabel extends ColoredLabel implements MouseListener, Observer {
     private String address;
-    private CurrentCell current;
+    private CurrentCell currentCell;
 
-    public SlotLabel(CurrentCell current, String address) {
+    public SlotLabel(CurrentCell currentCell, String address) {
         super("                    ", Color.WHITE, RIGHT);
         addMouseListener(this);
-        this.current = current;
+        this.currentCell = currentCell;
         this.address = address;
 
     }
@@ -30,7 +30,9 @@ public class SlotLabel extends ColoredLabel implements MouseListener, Observer {
 
     @Override
     public void mousePressed(MouseEvent e){
+        currentCell.setAddress(address);
         this.setBackground(Color.YELLOW);
+
     }
 
     @Override

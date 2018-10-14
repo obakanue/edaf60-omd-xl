@@ -24,6 +24,9 @@ public class Sheet extends Observable implements Environment{
         setChanged();
         notifyObservers();
     }
+    public Set<Entry<String, Slot>> getEntries() {
+        return cellMap.entrySet();
+    }
 
     public void clearCell(String address){
         cellMap.remove(address);

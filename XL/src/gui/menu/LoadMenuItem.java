@@ -25,9 +25,9 @@ class LoadMenuItem extends OpenMenuItem {
             TreeMap<String, Cell> loadSheet = new TreeMap<String, Cell>();
             while (ready()){
                 String line = readLine();
-                int seperate = string.indexOf('=');
+                int seperate = line.indexOf('=');
                 String address = line.substring(0,address);
-                String value = string.substring(address + 1);
+                String value = line.substring(address + 1);
                 loadSheet.put(address, loadCellFactory.cell(sheet, value));
                 sheet = loadSheet;
             }

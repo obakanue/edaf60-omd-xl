@@ -34,5 +34,6 @@ public class Editor extends JTextField implements Observer {
 	@Override
 	public void update(Observable observable, Object object) {
 		getText();
+		//TODO implement update()
 	}
 }

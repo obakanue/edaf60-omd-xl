@@ -6,10 +6,10 @@ import java.awt.Color;
 public class CurrentLabel extends ColoredLabel implements Observer {
     private CurrentCell currentCell;
 
-    public CurrentLabel(CurrentCell currentCelll) {
+    public CurrentLabel() {
         super("A1", Color.WHITE);
-        this.currentCell = currentCell;
-        currentCell.addObserver(this);
+
+
     }
 
     @Override

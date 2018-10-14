@@ -24,6 +24,7 @@ public class Sheet extends Observable implements Environment{
         setChanged();
         notifyObservers();
     }
+    
     public Set<Map.Entry<String, Cell>> getEntries() {
         return cellMap.entrySet();
     }

@@ -14,5 +14,9 @@ public class ExprCell implements Cell {
         return expr.value(env);
     }
 
+    public String toString(){
+        return expr.toString();
+    }
+
 
 }

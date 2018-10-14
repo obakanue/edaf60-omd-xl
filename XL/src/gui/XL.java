@@ -25,10 +25,11 @@ public class XL extends JFrame implements Printable {
         super("Untitled-" + counter);
         this.xlList = xlList;
         this.counter = counter;
+        CurrentCell current = new CurrentCell();
         xlList.add(this);
         counter.increment();
         JPanel statusPanel = new StatusPanel(statusLabel);
-        JPanel sheetPanel = new SheetPanel(ROWS, COLUMNS);
+        JPanel sheetPanel = new SheetPanel(ROWS, COLUMNS, current);
         Editor editor = new Editor();
         add(NORTH, statusPanel);
         add(CENTER, editor);

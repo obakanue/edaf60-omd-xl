@@ -6,7 +6,7 @@ public class ExprCell implements Cell {
 
     private Expr expr;
 
-    public ExprCell (Sheet sheet, String addr, String value){
+    public ExprCell (Expr expr){
         this.expr = expr;
     }
 

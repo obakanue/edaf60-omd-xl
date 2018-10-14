@@ -2,13 +2,8 @@ package model;
 
 import model.expr.Environment;
 
-public abstract class Cell {
-    Sheet sheet;
-    String address;
+public interface Cell {
 
-    public Cell(Sheet sheet, String address){
-        this.sheet = sheet;
-        this.address = address;
-    }
-    public abstract double cellValue(Environment env);
+    double cellValue(Environment env);
+    String toString();
 }

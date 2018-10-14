@@ -1,20 +1,19 @@
 package model;
 
 import model.expr.Environment;
-import java.io.*;
+import java.util.*;
 
-import java.util.Map;
-import java.util.TreeMap;
+
 //Lyssna på hela modellen -> lyssna på sheets
 public class Sheet extends Observable implements Environment {
     private Map<String, Cell> cellMap;
 
     public Sheet(){
-        cellMap = new TreeMap<String, Cell>();
+        cellMap = new TreeMap<>();
     }
 
     public Cell getCell(String address){
-        if(cellMap.contains(address)){
+        if(cellMap.containsKey(address)){
             return cellMap.get(address);
         }else {
             return cellMap.get(address);

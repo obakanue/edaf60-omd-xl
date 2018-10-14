@@ -4,6 +4,7 @@ import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 import gui.menu.XLMenuBar;
+import model.Cell;
 import model.Sheet;
 
 import java.awt.Graphics;
@@ -19,6 +20,7 @@ public class XL extends JFrame implements Printable {
     private StatusLabel statusLabel = new StatusLabel();
     private XLList xlList;
     private Sheet sheet;
+    private CurrentCell currentCell;
 
     public XL(XL oldXL) {
         this(oldXL.xlList, oldXL.counter);
@@ -29,7 +31,7 @@ public class XL extends JFrame implements Printable {
         this.xlList = xlList;
         this.counter = counter;
         this.sheet = new Sheet();
-        CurrentCell currentCell = new CurrentCell();
+        this.currentCell = new CurrentCell();
         xlList.add(this);
         counter.increment();
         JPanel sheetPanel = new SheetPanel(ROWS, COLUMNS, currentCell);
@@ -50,7 +52,7 @@ public class XL extends JFrame implements Printable {
     }
     
     public Cell getCurrentCell(){
-    	return currentCell;
+    	return sheet.getCell(currentCell.getAddress());
     }
 
     public int print(Graphics g, PageFormat pageFormat, int page) {

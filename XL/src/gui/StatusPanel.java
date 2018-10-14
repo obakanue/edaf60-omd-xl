@@ -5,7 +5,7 @@ import static java.awt.BorderLayout.WEST;
 
 public class StatusPanel extends BorderPanel {
     protected StatusPanel(StatusLabel statusLabel, CurrentCell current) {
-        add(WEST, new CurrentLabel(current));
+        add(WEST, new CurrentLabel());
         add(CENTER, statusLabel);
     }
 }

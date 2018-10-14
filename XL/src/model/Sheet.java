@@ -26,7 +26,7 @@ public class Sheet extends Observable implements Environment {
     }
 
     public void clearAll(){
-        cellMap = new TreeMap<>;
+        cellMap = new TreeMap<>();
         //notify
     }
 

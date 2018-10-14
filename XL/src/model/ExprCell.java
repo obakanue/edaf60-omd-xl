@@ -1,4 +1,6 @@
 package model;
+import model.expr.Environment;
+import model.expr.Expr;
 
 public class ExprCell implements Cell {
 

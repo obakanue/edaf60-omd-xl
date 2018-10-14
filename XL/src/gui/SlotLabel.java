@@ -29,7 +29,7 @@ public class SlotLabel extends ColoredLabel implements MouseListener, Observer {
 
     @Override
     public void mousePressed(MouseEvent e){
-        //currentSlot.resetLabel();
+        current.clearCurrent();
         this.setBackground(Color.YELLOW);
     }
 

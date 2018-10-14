@@ -12,12 +12,8 @@ public class Sheet extends Observable implements Environment {
         cellMap = new TreeMap<>();
     }
 
-    public Cell getCell(String address){
-        if(cellMap.containsKey(address)){
-            return cellMap.get(address);
-        }else {
-            return cellMap.get(address);
-        }
+    public Optional<Cell> getCell(String address){
+        return Optional.ofNullable(cellMap.get(address));
     }
 
     public void put(String address, Cell cell){
@@ -26,7 +22,7 @@ public class Sheet extends Observable implements Environment {
 
     @Override
     public double value(String name){
-        return getCell(name).cellValue(this);
+        return getCell(name).map(x -> x.cellValue(this)).orElse(0.0);
     }
 
 }

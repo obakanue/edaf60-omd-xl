@@ -4,6 +4,6 @@ import model.expr.Environment;
 
 public interface Cell {
 
-    double value(Environment env);
+    double cellValue(Environment env);
     String toString();
 }

@@ -1,4 +1,6 @@
 package model;
+import model.expr.Expr;
+import model.expr.Environment;
 
 public class ExprCell implements Cell {
 
@@ -11,6 +13,5 @@ public class ExprCell implements Cell {
     public double cellValue(Environment env){
         return expr.value(env);
     }
-
 
 }

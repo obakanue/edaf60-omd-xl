@@ -18,6 +18,20 @@ public class Sheet extends Observable implements Environment {
 
     public void put(String address, Cell cell){
         cellMap.put(address, cell);
+        //notify
+    }
+
+    public void updateExternal() {
+        //notifyObserver();
+    }
+
+    public void clearAll(){
+        cellMap = new TreeMap<>;
+        //notify
+    }
+
+    public void clearCell(String address){
+        //kod
     }
 
     @Override

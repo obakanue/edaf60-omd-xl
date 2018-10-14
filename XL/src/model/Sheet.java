@@ -1,11 +1,8 @@
 package model;
-
 import model.expr.Environment;
 import java.util.*;
 
-
-//Lyssna på hela modellen -> lyssna på sheets
-public class Sheet extends Observable implements Environment {
+public class Sheet extends Observable implements Environment{
     private Map<String, Cell> cellMap;
 
     public Sheet(){
@@ -16,27 +13,25 @@ public class Sheet extends Observable implements Environment {
         return Optional.ofNullable(cellMap.get(address));
     }
 
-    public void put(String address, Cell cell){
+    public void add(String address, Cell cell){
         cellMap.put(address, cell);
-        //notify
-    }
-
-    public void updateExternal() {
-        //notifyObserver();
+        setChanged();
+        notifyObservers();
     }
 
     public void clearAll(){
-        cellMap = new TreeMap<>;
-        //notify
+        cellMap = new TreeMap<>();
+        setChanged();
+        notifyObservers();
     }
 
     public void clearCell(String address){
-        //kod
+        cellMap.remove(address);
+        setChanged();
+        notifyObservers();
     }
 
-    @Override
     public double value(String name){
         return getCell(name).map(x -> x.cellValue(this)).orElse(0.0);
     }
-
 }

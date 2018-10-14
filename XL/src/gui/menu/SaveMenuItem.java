@@ -5,8 +5,10 @@ import gui.XL;
 import java.io.FileNotFoundException;
 import javax.swing.JFileChooser;
 import java.io.PrintStream;
+import java.util.Map;
+import model.Sheet;
 
-class SaveMenuItem extends OpenMenuItem {
+class SaveMenuItem extends gui.menu.OpenMenuItem {
 
     private Sheet sheet;
 
@@ -16,17 +18,19 @@ class SaveMenuItem extends OpenMenuItem {
     }
 
     protected void action(String path) throws FileNotFoundException {
+        try {
         PrintStream out = new PrintStream(path);
-        Set<Entry<String, Cell>> entries = sheet.getEntries();
-        for(Entry<String, Cell> index : entries){
-            //vill ha address nedan
-            out.print(index.getKey());
+        for(Map.Entry<String, model.Cell> entries : sheet.getMap().entrySet()){
+            out.print(entries.getKey());
             out.print('=');
-            //vill ha value nedan om comment string
-            out.println(index.getValue().toString());
+            //Kommer att bli problem med nedan (båda har toString)
+            out.println(entries.getValue().toString());
         }
-        flush();
-        close();
+        out.flush();
+        out.close();
+        } catch (Exception e) {
+            statusLabel.setText("Unable to save file " + e);
+        }
 
     }
 

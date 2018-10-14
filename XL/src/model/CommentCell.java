@@ -11,4 +11,8 @@ private String comment;
     public double cellValue(Environment env){
         return 0;
     }
+
+    public String toString(){ return comment; }
+
+
 }

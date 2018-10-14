@@ -5,16 +5,16 @@ import java.util.*;
 
 public class CurrentCell extends Observable{
     private SlotLabel currentLabel;
+    private String address;
 
-    public void set(SlotLabel currentLabel){
-        this.currentLabel = currentLabel;
-        setChanged();
-        notifyObservers();
-        addObserver(currentLabel);
+    public CurrentCell(String address){
+        this.address = address;
     }
 
-    public void clearCurrent(){
-        currentLabel.setBackground(Color.WHITE);
+    public String getAddress(){
+        return address;
     }
+
+
 
 }

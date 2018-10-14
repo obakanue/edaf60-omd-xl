@@ -21,6 +21,7 @@ public class SlotLabel extends ColoredLabel implements MouseListener, Observer {
     public String toString(){
         return address;
     }
+
     @Override
     public void update(Observable o, Object arg) {
 
@@ -29,7 +30,6 @@ public class SlotLabel extends ColoredLabel implements MouseListener, Observer {
 
     @Override
     public void mousePressed(MouseEvent e){
-        current.clearCurrent();
         this.setBackground(Color.YELLOW);
     }
 

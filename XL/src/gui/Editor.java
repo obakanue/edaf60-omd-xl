@@ -3,6 +3,8 @@ package gui;
 import java.awt.Color;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Optional;
+
 import javax.swing.JTextField;
 
 import model.Sheet;
@@ -16,9 +18,12 @@ import model.expr.ExprParser;
 
 public class Editor extends JTextField implements Observer {
 	private CellFactory cellFactory;
-	private Cell cell;
+	private Sheet sheet;
+	private CurrentCell currentCell;
 
 	public Editor(Sheet sheet, CurrentCell currentCell) {
+		this.sheet = sheet;
+		this.currentCell = currentCell;
 		cellFactory = new CellFactory();
 		setBackground(Color.WHITE);
 		currentCell.addObserver(this);
@@ -30,7 +35,8 @@ public class Editor extends JTextField implements Observer {
 
 	@Override
 	public void update(Observable observable, Object object) {
-		getText();
-		//TODO implement update()
+		Optional<Cell> cell = sheet.getCell(currentCell.getAddress());
+		cell.
+		setText();
 	}
 }

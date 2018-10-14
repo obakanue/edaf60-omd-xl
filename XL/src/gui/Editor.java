@@ -16,6 +16,7 @@ import model.expr.ExprParser;
 
 public class Editor extends JTextField implements Observer {
 	private CellFactory cellFactory;
+	private Cell cell;
 
 	public Editor(Sheet sheet, CurrentCell currentCell) {
 		cellFactory = new CellFactory();
@@ -23,11 +24,7 @@ public class Editor extends JTextField implements Observer {
 		currentCell.addObserver(this);
 		addActionListener(e -> {
 			String value = getText();
-			if (value.length() == 0) {
-				sheet.clearCell(currentCell.getAddress());
-			} else {
-				cellFactory.cell(sheet, currentCell.getAddress(), value);
-			}
+			cellFactory.cell(sheet, currentCell.getAddress(), value);
 		});
 	}
 

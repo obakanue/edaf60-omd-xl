@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 
 import model.Sheet;
 import model.Cell;
+import model.CellFactory;
 import model.CommentCell;
 import model.ExprCell;
 import gui.CurrentCell;
@@ -14,33 +15,24 @@ import model.expr.Expr;
 import model.expr.ExprParser;
 
 public class Editor extends JTextField implements Observer {
-    private Sheet sheet;
-    private CurrentCell currentCell;
+	private CellFactory cellFactory;
 
-    public Editor(Sheet sheet, CurrentCell currentCell) {
-        this.sheet = sheet;
-        this.currentCell = currentCell;
+	public Editor(Sheet sheet, CurrentCell currentCell) {
+		cellFactory = new CellFactory();
+		setBackground(Color.WHITE);
+		currentCell.addObserver(this);
+		addActionListener(e -> {
+			String value = getText();
+			if (value.length() == 0) {
+				sheet.clearCell(currentCell.getAddress());
+			} else {
+				cellFactory.cell(sheet, currentCell.getAddress(), value);
+			}
+		});
+	}
 
-        setBackground(Color.WHITE);
-        currentCell.addObserver(this);
-
-        addActionListener(e -> {
-            Cell cell;
-            String value = getText();
-            if (value.length() > 0 && value.startsWith("#")) {
-                cell = new CommentCell(value);
-                sheet.add(currentCell.getAddress(), cell);
-            } else if (value.length() > 0 && !value.startsWith("#")) {
-                Expr expr = new ExprParser().build(value);
-                cell = new ExprCell(sheet, currentCell.getAddress(), expr);
-                sheet.add(currentCell.getAddress(), cell);
-            } else
-                sheet.clearCell(currentCell.getAddress());
-        });
-    }
-
-    @Override
-    public void update(Observable observable, Object object) {
-        getText();
-    }
+	@Override
+	public void update(Observable observable, Object object) {
+		getText();
+	}
 }

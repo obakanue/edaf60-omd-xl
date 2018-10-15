@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.event.*;
 import java.util.*;
 
-public class SlotLabel extends ColoredLabel implements MouseListener, Observer {
+public class SlotLabel extends ColoredLabel implements MouseListener{
     private String address;
     private CurrentCell currentCell;
 

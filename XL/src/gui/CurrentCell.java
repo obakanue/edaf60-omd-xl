@@ -1,21 +1,26 @@
 package gui;
+import java.awt.*;
 import java.util.*;
 
 public class CurrentCell extends Observable {
 	private String address;
+	private SlotLabel slotLabel;
 
-	public CurrentCell(String address) {
-		this.address = address;
+	public CurrentCell() {
 	}
 
 	public String getAddress() {
-		return address;
+		return slotLabel.getAddress();
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void set(SlotLabel slotLabel) {
+		this.slotLabel = slotLabel;
 		setChanged();
 		notifyObservers();
 	}
+
+    public void clearColor(){
+        slotLabel.setBackground(Color.WHITE);
+    }
 
 }

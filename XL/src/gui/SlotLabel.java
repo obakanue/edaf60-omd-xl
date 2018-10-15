@@ -9,24 +9,31 @@ public class SlotLabel extends ColoredLabel implements MouseListener{
     private String address;
     private CurrentCell currentCell;
 
-    public SlotLabel(CurrentCell currentCell, String address) {
+    public SlotLabel(String address, CurrentCell currentCell) {
         super("                    ", Color.WHITE, RIGHT);
         addMouseListener(this);
         this.currentCell = currentCell;
         this.address = address;
-
     }
 
+    public SlotLabel(CurrentCell currentCell){
+        super("                    ", Color.WHITE);
+        this.address = currentCell.getAddress();
+    }
 
-    public String toString(){
+    public void setCurrent(CurrentCell currentCell){
+        this.currentCell = currentCell;
+    }
+
+    public String getAddress(){
         return address;
     }
 
     @Override
     public void mousePressed(MouseEvent e){
-        currentCell.setAddress(address);
+        currentCell.clearColor();
         this.setBackground(Color.YELLOW);
-
+        currentCell.set(this);
     }
 
     @Override

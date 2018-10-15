@@ -36,7 +36,7 @@ class LoadMenuItem extends OpenMenuItem {
                 int seperate = line.indexOf('=');
                 String address = line.substring(0, seperate);
                 String value = line.substring(seperate + 1);
-                loadSheet.put(address, loadCellFactory.cell(sheet, address, value));
+                //loadSheet.put(address, loadCellFactory.cell(sheet, address, value));
 
             }
 

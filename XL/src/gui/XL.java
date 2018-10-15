@@ -31,7 +31,7 @@ public class XL extends JFrame implements Printable {
         this.xlList = xlList;
         this.counter = counter;
         this.sheet = new Sheet();
-        this.currentCell = new CurrentCell("A1");
+        this.currentCell = new CurrentCell();
         xlList.add(this);
         counter.increment();
         JPanel sheetPanel = new SheetPanel(ROWS, COLUMNS, currentCell, sheet);

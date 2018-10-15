@@ -14,5 +14,6 @@ public class StatusLabel extends ColoredLabel implements Observer {
     }
 
     public void setText(String s) {
+
     }
 }

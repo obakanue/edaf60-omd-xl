@@ -7,7 +7,7 @@ public class CurrentLabel extends ColoredLabel implements Observer {
     private CurrentCell currentCell;
 
     public CurrentLabel(CurrentCell currentCell) {
-        super("A1", Color.WHITE);
+        super(currentCell.getAddress(), Color.WHITE);
         this.currentCell = currentCell;
         this.currentCell.addObserver(this);
     }

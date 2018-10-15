@@ -36,9 +36,9 @@ public class Editor extends JTextField implements Observer {
 	@Override
 	public void update(Observable observable, Object object) {
 		Optional<Cell> cell = sheet.getCell(currentCell.getAddress());
-		if(cell.isPresent()){
-			setText(cell.toString());	
-		}else{
+		if (cell.isPresent()) {
+			setText(cell.toString());
+		} else {
 			setText("");
 		}
 	}

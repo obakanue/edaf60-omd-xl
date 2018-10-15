@@ -23,12 +23,6 @@ public class SlotLabel extends ColoredLabel implements MouseListener{
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-
-    }
-
-
-    @Override
     public void mousePressed(MouseEvent e){
         currentCell.setAddress(address);
         this.setBackground(Color.YELLOW);

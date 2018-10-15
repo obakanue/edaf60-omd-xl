@@ -8,8 +8,8 @@ import model.Sheet;
 
 
 public class SheetPanel extends BorderPanel {
-    public SheetPanel(int rows, int columns, CurrentCell current, Sheet sheet) {
+    public SheetPanel(int rows, int columns, XL xl) {
         add(WEST, new RowLabels(rows));
-        add(CENTER, new SlotLabels(rows, columns, current, sheet));
+        add(CENTER, new SlotLabels(rows, columns, xl));
     }
 }

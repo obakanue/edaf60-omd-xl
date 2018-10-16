@@ -19,8 +19,12 @@ public class CurrentCell extends Observable {
 		notifyObservers();
 	}
 
-    public void clearColor(){
-        slotLabel.setBackground(Color.WHITE);
+    public void setColor(){
+    	if(slotLabel.getBackground() == Color.WHITE){
+    		slotLabel.setBackground(Color.YELLOW);
+    	}else{
+    		slotLabel.setBackground(Color.WHITE);
+    	}
     }
 
 }

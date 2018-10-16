@@ -16,7 +16,7 @@ class SaveMenuItem extends gui.menu.OpenMenuItem {
 
 	public SaveMenuItem(XL xl, StatusLabel statusLabel) {
 		super(xl, statusLabel, "Save");
-		this.sheet = sheet;
+		this.sheet = xl.getSheet();
 	}
 
 	protected void action(String path) throws FileNotFoundException {

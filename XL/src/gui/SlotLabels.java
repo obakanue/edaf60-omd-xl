@@ -57,10 +57,11 @@ public class SlotLabels extends GridPanel implements Observer {
 		Map<String, Cell> tempMap = sheet.getMap();
 		for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
 			String address = entry.getKey();
+			Cell cell = entry.getValue();
 			for (SlotLabel sl : labelList) {
 				if (sl.getAddress() == address) {
-					if (entry.getValue() instanceof CommentCell) {;
-						String cellString = entry.getValue().toString();
+					if (cell instanceof CommentCell) {;
+						String cellString = cell.toString();
 						sl.setText(cellString.substring(1, cellString.length()));
 					} else {
 						sl.setText(Double.toString(sheet.value(entry.getKey())));

@@ -22,6 +22,7 @@ class SaveMenuItem extends gui.menu.OpenMenuItem {
 	protected void action(String path) throws FileNotFoundException {
 		try {
 			Map<String, Cell> tempMap = sheet.getMap();
+
 			PrintStream out = new PrintStream(path);
 			for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
 				out.print(entry.getKey());
@@ -36,8 +37,8 @@ class SaveMenuItem extends gui.menu.OpenMenuItem {
 			}
 			out.flush();
 			out.close();
-		} catch (Exception e) {
-			statusLabel.setText("Unable to save file " + e);
+		} catch (FileNotFoundException e) {
+			statusLabel.setText("Unable to save file " + e.getMessage());
 		}
 	}
 	

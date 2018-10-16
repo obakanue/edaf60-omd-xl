@@ -32,26 +32,17 @@ class LoadMenuItem extends gui.menu.OpenMenuItem {
     protected void action(String path) throws FileNotFoundException {
         try {
             BufferedReader file = new BufferedReader(new FileReader(path));
-            TreeMap<String, Cell> loadSheet = new TreeMap<>();
-            //IllegalArgumentException - If sz is <= 0, hur få in
             try {
                 while (file.ready()) {
-                //IllegalArgumentException
                 String line = file.readLine();
                 int separator = line.indexOf('=');
                 String address = line.substring(0, separator);
                 String value = line.substring(separator + 1);
-                loadCellFactory.cell(sheet, address, value);
+                sheet.add(address, loadCellFactory.cell(sheet, address, value));
                   }
              }catch (IOException e){
                 e.getMessage();
                 }
-            for (Map.Entry<String, Cell> entry : loadSheet.entrySet()){
-                 sheet.add(entry.getKey(), entry.getValue());
-            }
-            //ha något som ger nytt sheet i sheet, metod?
-            //updateralabels?
-
         } catch (FileNotFoundException e) {
             statusLabel.setText("Unable to load file " + e.getMessage());
         }

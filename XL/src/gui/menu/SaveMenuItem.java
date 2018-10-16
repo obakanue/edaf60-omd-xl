@@ -1,9 +1,9 @@
 package gui.menu;
 
+import model.Cell;
+import model.CommentCell;
 import gui.StatusLabel;
 import gui.XL;
-import javafx.scene.control.Cell;
-
 import java.io.FileNotFoundException;
 import javax.swing.JFileChooser;
 import java.io.PrintStream;
@@ -24,10 +24,15 @@ class SaveMenuItem extends gui.menu.OpenMenuItem {
 			Map<String, Cell> tempMap = sheet.getMap();
 			PrintStream out = new PrintStream(path);
 			for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
-				out.print(entries.getKey());
+				out.print(entry.getKey());
 				out.print('=');
-				// Kommer att bli problem med nedan (båda har toString)
-				out.println(entries.getValue().toString());
+				Cell tempCell = entry.getValue();
+				if (tempCell instanceof CommentCell) {
+					String cellString = tempCell.toString();
+					out.println(cellString.substring(1, cellString.length()));
+				} else {
+					out.println(Double.toString(sheet.value(entry.getKey())));
+				}
 			}
 			out.flush();
 			out.close();

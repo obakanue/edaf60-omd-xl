@@ -39,9 +39,8 @@ class SaveMenuItem extends gui.menu.OpenMenuItem {
 		} catch (Exception e) {
 			statusLabel.setText("Unable to save file " + e);
 		}
-
 	}
-
+	
 	protected int openDialog(JFileChooser fileChooser) {
 		return fileChooser.showSaveDialog(xl);
 	}

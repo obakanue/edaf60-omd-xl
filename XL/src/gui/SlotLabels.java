@@ -59,8 +59,9 @@ public class SlotLabels extends GridPanel implements Observer {
 			String address = entry.getKey();
 			for (SlotLabel sl : labelList) {
 				if (sl.getAddress() == address) {
-					if (entry.getValue() instanceof CommentCell) {
-						sl.setText(entry.getValue().toString().substring(1, entry.getValue().toString().length()));
+					if (entry.getValue() instanceof CommentCell) {;
+						String cellString = entry.getValue().toString();
+						sl.setText(cellString.substring(1, cellString.length()));
 					} else {
 						sl.setText(Double.toString(sheet.value(entry.getKey())));
 					}

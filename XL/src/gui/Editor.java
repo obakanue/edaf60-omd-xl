@@ -4,17 +4,11 @@ import java.awt.Color;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Optional;
-
 import javax.swing.JTextField;
-
 import model.Sheet;
 import model.Cell;
 import model.CellFactory;
-import model.CommentCell;
-import model.ExprCell;
 import gui.CurrentCell;
-import model.expr.Expr;
-import model.expr.ExprParser;
 
 public class Editor extends JTextField implements Observer {
 	private CellFactory cellFactory;
@@ -37,7 +31,7 @@ public class Editor extends JTextField implements Observer {
 	public void update(Observable observable, Object object) {
 		Optional<Cell> cell = sheet.getCell(currentCell.getAddress());
 		if (cell.isPresent()) {
-			setText(cell.toString());
+			setText(cell.toString().substring(9, cell.toString().length() - 1));
 		} else {
 			setText("");
 		}

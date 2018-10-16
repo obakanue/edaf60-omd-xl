@@ -35,7 +35,7 @@ public class Sheet extends Observable implements Environment{
         notifyObservers();
     }
 
-    public double value(String name){
-        return getCell(name).map(x -> x.cellValue(this)).orElse(0.0);
+    public double value(String address){
+        return getCell(address).map(x -> x.cellValue(this)).orElse(0.0);
     }
 }

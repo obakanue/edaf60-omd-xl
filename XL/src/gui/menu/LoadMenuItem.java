@@ -6,6 +6,7 @@ import gui.XL;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.JFileChooser;
@@ -34,15 +35,16 @@ class LoadMenuItem extends gui.menu.OpenMenuItem {
             TreeMap<String, Cell> loadSheet = new TreeMap<>();
             //IllegalArgumentException - If sz is <= 0, hur få in
             try {
-            while (file.ready()) {
+                while (file.ready()) {
                 //IllegalArgumentException
                 String line = file.readLine();
                 int separator = line.indexOf('=');
                 String address = line.substring(0, separator);
                 String value = line.substring(separator + 1);
-                loadSheet.put(address, loadCellFactory.cell(sheet, address, value));
-            }catch (IOException e){
-
+                loadCellFactory.cell(sheet, address, value);
+                  }
+             }catch (IOException e){
+                e.getMessage();
                 }
             for (Map.Entry<String, Cell> entry : loadSheet.entrySet()){
                  sheet.add(entry.getKey(), entry.getValue());

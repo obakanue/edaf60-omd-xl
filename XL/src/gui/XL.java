@@ -5,6 +5,8 @@ import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 import gui.menu.XLMenuBar;
 import model.Cell;
+import model.CellFactory;
+import model.ExprCell;
 import model.Sheet;
 
 import java.awt.Graphics;
@@ -31,6 +33,10 @@ public class XL extends JFrame implements Printable {
         this.xlList = xlList;
         this.counter = counter;
         this.sheet = new Sheet();
+        // This is for testing
+        CellFactory cf = new CellFactory();
+        cf.cell(sheet, "B4", "#Kommentar" );
+        // test
         this.currentCell = new CurrentCell();
         xlList.add(this);
         counter.increment();

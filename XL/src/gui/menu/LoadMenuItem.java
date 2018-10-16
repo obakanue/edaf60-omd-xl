@@ -40,9 +40,10 @@ class LoadMenuItem extends gui.menu.OpenMenuItem {
                 int separator = line.indexOf('=');
                 String address = line.substring(0, separator);
                 String value = line.substring(separator + 1);
-                loadSheet.put(address, loadCellFactory.cell(value));
-            }catch (){
-            }
+                loadSheet.put(address, loadCellFactory.cell(sheet, address, value));
+            }catch (IOException e){
+
+                }
             for (Map.Entry<String, Cell> entry : loadSheet.entrySet()){
                  sheet.add(entry.getKey(), entry.getValue());
             }

@@ -4,7 +4,7 @@ import util.XLException;
 
 import java.util.*;
 
-public class Sheet extends Observable implements Environment{
+public class Sheet extends Observable implements Environment {
     private Map<String, Cell> cellMap;
 
     public Sheet(){
@@ -30,14 +30,13 @@ public class Sheet extends Observable implements Environment{
         notifyObservers();
     }
 
-    public void load(Map<String, Cell> newCellMap){
-        Map<String, Cell> temp = cellMap;
-        this.cellMap = newCellMap;
-        setChanged();
-        notifyObservers();
+    public void load(Map<String, String> newCellMap){
+        for (Map.Entry<String, String> entry : newCellMap.entrySet()) {
+            this.add(entry.getKey(), entry.getValue());
+        }
+    }
 
-        /*for (Map.Entry<String, Cell> entry : temp.entrySet()) {
-        }*/
+    public void startObserving(){
     }
 
     public Map<String, Cell> getMap() {
@@ -68,4 +67,5 @@ public class Sheet extends Observable implements Environment{
         cellMap.put(address, temp);
         return false;
     }
+
 }

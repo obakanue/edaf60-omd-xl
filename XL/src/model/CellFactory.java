@@ -7,7 +7,7 @@ import java.io.IOException;
 import model.expr.Expr;
 import model.expr.ExprParser;
 
-public class CellFactory {
+public class CellFactory extends Sheet {
 
     public static Cell cell(/*Sheet sheet, String addr, */String value) {
     	if (value.length() == 0) {

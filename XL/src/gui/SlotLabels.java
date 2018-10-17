@@ -55,6 +55,11 @@ public class SlotLabels extends GridPanel implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		Map<String, Cell> tempMap = sheet.getMap();
+		for(SlotLabel sl: labelList){
+			if(!tempMap.containsKey(sl.getAddress())){
+				sl.setText("");
+			}
+		}
 		for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
 			String address = entry.getKey();
 			Cell cell = entry.getValue();

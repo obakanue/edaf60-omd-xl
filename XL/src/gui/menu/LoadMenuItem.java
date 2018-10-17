@@ -42,7 +42,7 @@ class LoadMenuItem extends gui.menu.OpenMenuItem {
         }catch (XLException e){
             //TODO
         }
-        sheet.load(loadMap);
+        xl.load(loadMap);
     }
 
     protected int openDialog (JFileChooser fileChooser){

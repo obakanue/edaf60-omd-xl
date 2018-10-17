@@ -58,7 +58,9 @@ public class SlotLabels extends GridPanel implements Observer {
 		for(SlotLabel sl: labelList){
 			if(!tempMap.containsKey(sl.getAddress())){
 				sl.setText("");
-			}
+			}else{
+			    sl.setText(Double.toString(tempMap.get(sl.getAddress()).cellValue(sheet)));
+            }
 		}
 		for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
 			String address = entry.getKey();

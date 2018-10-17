@@ -7,8 +7,8 @@ import javax.swing.JMenuItem;
 import gui.XL;
 
 class ClearAllMenuItem extends JMenuItem implements ActionListener {
-	private XL xl;
-	
+    private XL xl;
+
     public ClearAllMenuItem(XL xl) {
         super("Clear all");
         this.xl = xl;
@@ -16,6 +16,6 @@ class ClearAllMenuItem extends JMenuItem implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-    	xl.getSheet().clearAll();
+        xl.getSheet().clearAll();
     }
 }

@@ -1,4 +1,5 @@
 package gui;
+
 import java.util.*;
 
 import java.awt.Color;
@@ -13,7 +14,7 @@ public class CurrentLabel extends ColoredLabel implements Observer {
     }
 
     @Override
-    public void update(Observable observable, Object object){
+    public void update(Observable observable, Object object) {
         setText(currentCell.getAddress());
     }
 

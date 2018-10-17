@@ -2,9 +2,11 @@ package util;
 
 /**
  * NumberAdjustment.java Created: Mon OTue 24 2005
+ *
  * @author Lennart Andersson
  * @version 0.1
  */
+
 /**
  * Adjustment is a class for adjusting string representations of numerical
  * values within a String.
@@ -16,7 +18,7 @@ public class NumberAdjustment extends Adjustment {
 
     /**
      * Creates an adjustment for numbers.
-     * 
+     *
      * @param width
      *            is the number of positions for the result. If the width is
      *            insufficient extra positions are added.
@@ -30,7 +32,7 @@ public class NumberAdjustment extends Adjustment {
 
     /**
      * Creates an adjustment for numbers with an exponent field.
-     * 
+     *
      * @param width
      *            is the number of positions for the result. If the width is
      *            insufficient extra positions are added.
@@ -80,7 +82,7 @@ public class NumberAdjustment extends Adjustment {
 
     /**
      * Returns a right adjusted String.
-     * 
+     *
      * @param number
      *            is the value to adjust.
      */
@@ -111,7 +113,7 @@ public class NumberAdjustment extends Adjustment {
 
     /**
      * Returns a right adjusted String.
-     * 
+     *
      * @param number
      *            is the value to adjust.
      */

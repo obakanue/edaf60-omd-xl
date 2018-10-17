@@ -8,7 +8,7 @@ import gui.CurrentCell;
 import gui.XL;
 
 class ClearMenuItem extends JMenuItem implements ActionListener {
-	private XL xl;
+    private XL xl;
 
     public ClearMenuItem(XL xl) {
         super("Clear");

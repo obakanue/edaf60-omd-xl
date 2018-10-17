@@ -3,6 +3,7 @@ package gui;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
+
 import gui.menu.XLMenuBar;
 import model.Cell;
 
@@ -48,13 +49,13 @@ public class XL extends JFrame implements Printable {
         setResizable(false);
         setVisible(true);
     }
-    
-    public Sheet getSheet(){
-    	return sheet;
+
+    public Sheet getSheet() {
+        return sheet;
     }
-    
-    public CurrentCell getCurrentCell(){
-    	return currentCell;
+
+    public CurrentCell getCurrentCell() {
+        return currentCell;
     }
 
     public int print(Graphics g, PageFormat pageFormat, int page) {
@@ -71,7 +72,7 @@ public class XL extends JFrame implements Printable {
         xlList.setChanged();
     }
 
-    public void load(Map<String, String> map){
+    public void load(Map<String, String> map) {
         sheet.load(map);
     }
 

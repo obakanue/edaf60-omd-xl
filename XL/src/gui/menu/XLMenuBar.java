@@ -3,6 +3,7 @@ package gui.menu;
 import gui.StatusLabel;
 import gui.XL;
 import gui.XLList;
+
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 

@@ -1,11 +1,12 @@
 package gui;
 
 import model.Sheet;
+
 import java.awt.Color;
 import java.awt.event.*;
 import java.util.*;
 
-public class SlotLabel extends ColoredLabel{
+public class SlotLabel extends ColoredLabel {
     private String address;
     private CurrentCell currentCell;
 
@@ -15,16 +16,16 @@ public class SlotLabel extends ColoredLabel{
         this.address = address;
     }
 
-    public SlotLabel(CurrentCell currentCell){
+    public SlotLabel(CurrentCell currentCell) {
         super("                    ", Color.WHITE);
         this.address = currentCell.getAddress();
     }
 
-    public void setCurrent(CurrentCell currentCell){
+    public void setCurrent(CurrentCell currentCell) {
         this.currentCell = currentCell;
     }
 
-    public String getAddress(){
+    public String getAddress() {
         return address;
     }
 }

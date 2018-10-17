@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.JFileChooser;
+
 import model.CellFactory;
 import model.Sheet;
 import model.Cell;
@@ -37,15 +38,15 @@ class LoadMenuItem extends gui.menu.OpenMenuItem {
             statusLabel.setText("Unable to load file " + e.getMessage());
         }
         Map<String, String> loadMap = new TreeMap<>();
-        try{
+        try {
             reader.load(loadMap);
-        }catch (XLException e){
+        } catch (XLException e) {
             //TODO
         }
         xl.load(loadMap);
     }
 
-    protected int openDialog (JFileChooser fileChooser){
+    protected int openDialog(JFileChooser fileChooser) {
         return fileChooser.showOpenDialog(xl);
     }
 }

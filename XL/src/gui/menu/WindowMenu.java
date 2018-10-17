@@ -2,6 +2,7 @@ package gui.menu;
 
 import gui.XL;
 import gui.XLList;
+
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JMenu;

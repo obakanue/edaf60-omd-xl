@@ -11,12 +11,12 @@ This is the report for
 When the user starts the program a window with a matrix is shown with different possible functionalities.
 
 ### Adding number 9 to cell A2.
-The user adds a number to a cell when pressing and thereby selecting it. Pressing the A2 cell will result 
+The user adds a number to a cell when pressing and thereby selecting it. Pressing the A2 cell will result
 in the cell turning yellow, thereby representing the cell as being the selected one. After that the user
-will press the editor textfield and then entering number 9 through the keyboard. Pressing enter or any 
-other action will result in the cell updating and showing the number in the corresponding selected cell. 
+will press the editor textfield and then entering number 9 through the keyboard. Pressing enter or any
+other action will result in the cell updating and showing the number in the corresponding selected cell.
 
-Trying to write the number in letters will simply not work. 
+Trying to write the number in letters will simply not work.
 
 ### Adding an expression to a cell
 If the user now also adds number 1 to cell A1, we can try and test if it works adding an expression to a cell.
@@ -45,7 +45,7 @@ representing only 1. Since the text does not hold any value.
 
 
 ### Saving an XL sheet
-The user presses the "File" button and then "Save". The user can then decide what to name the file and what 
+The user presses the "File" button and then "Save". The user can then decide what to name the file and what
 location to save it, ending with .xl. This saves the file.
 
 ### Loading an XL sheet
@@ -99,4 +99,10 @@ The model is in the file [`Package expr class diagram.png`](expr.png):
 
 <center>
     <img src="Package expr class diagram.png" width="80%">
+</center>
+
+The model is in the file [`Package model class diagram.png`](model.png):
+
+<center>
+    <img src="Package model class diagram.png" width="80%">
 </center>

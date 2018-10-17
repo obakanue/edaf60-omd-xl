@@ -8,16 +8,19 @@ import model.expr.Expr;
 import model.expr.ExprParser;
 
 public class CellFactory {
-    public void cell(Sheet sheet, String addr, String value) {
+
+    public static Cell cell(/*Sheet sheet, String addr, */String value) {
     	if (value.length() == 0) {
-			sheet.clearCell(addr);
+			return null;
     	}
 			else if (value.startsWith("#")) {
-        	sheet.add(addr, new CommentCell(value));
+        	//sheet.add(addr, new CommentCell(value));   // bryter mot SRP
+            return new CommentCell(value);
         } else {
             try {
                 Expr expr = new ExprParser().build(value);
-                sheet.add(addr, new ExprCell(expr));
+                //sheet.add(addr, new ExprCell(expr));  // bryter mot SRP
+                return new ExprCell(expr);
             } catch (IOException e) {
                 throw XLException.CELLBUILD_ERROR;
             }

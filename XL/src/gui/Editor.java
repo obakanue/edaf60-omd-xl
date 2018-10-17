@@ -23,7 +23,7 @@ public class Editor extends JTextField implements Observer {
 		currentCell.addObserver(this);
 		addActionListener(e -> {
 			String value = getText();
-			cellFactory.cell(sheet, currentCell.getAddress(), value);
+			sheet.add(currentCell.getAddress(), value);
 		});
 	}
 

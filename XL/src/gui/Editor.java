@@ -10,6 +10,7 @@ import model.Sheet;
 import model.Cell;
 import model.CellFactory;
 import gui.CurrentCell;
+import util.XLException;
 
 public class Editor extends JTextField implements Observer {
     private CellFactory cellFactory;
@@ -24,7 +25,10 @@ public class Editor extends JTextField implements Observer {
         currentCell.addObserver(this);
         addActionListener(e -> {
             String value = getText();
-            sheet.add(currentCell.getAddress(), value);
+            if(!value.isEmpty()) {
+                sheet.add(currentCell.getAddress(), value);
+                sheet.clearStatus();
+            }
         });
     }
 

@@ -60,7 +60,13 @@ public class SlotLabels extends GridPanel implements Observer {
             if (!tempMap.containsKey(sl.getAddress())) {
                 sl.setText("");
             } else{
-                sl.setText(Double.toString(sheet.value(sl.getAddress())));
+                Cell tempCell = tempMap.get(sl.getAddress());
+                if(tempCell instanceof CommentCell){
+                    String text = tempCell.toString();
+                    sl.setText(text.substring(1));
+                }else{
+                    sl.setText(Double.toString(sheet.value(sl.getAddress())));
+                }
             }
         }
         for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
@@ -70,7 +76,7 @@ public class SlotLabels extends GridPanel implements Observer {
                 if (sl.getAddress() == address) {
                     if (cell instanceof CommentCell) {
                         String cellString = cell.toString();
-                        sl.setText(cellString.substring(1, cellString.length()));
+                        sl.setText(cellString.substring(1));
                     } else {
                         sl.setText(Double.toString(sheet.value(entry.getKey())));
                     }

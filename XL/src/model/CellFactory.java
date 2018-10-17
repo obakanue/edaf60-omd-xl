@@ -9,7 +9,7 @@ import model.expr.ExprParser;
 
 public class CellFactory extends Sheet {
 
-    public static Cell cell(/*Sheet sheet, String addr, */String value) {
+    public static Cell cell(String value) {
         if (value.length() == 0) {
             return null;
         } else if (value.startsWith("#")) {
@@ -18,8 +18,8 @@ public class CellFactory extends Sheet {
         } else {
             try {
                 Expr expr = new ExprParser().build(value);
-                //sheet.add(addr, new ExprCell(expr));  // bryter mot SRP
                 return new ExprCell(expr);
+                //sheet.add(addr, new ExprCell(expr));  // bryter mot SRP
             } catch (IOException e) {
                 throw XLException.CELLBUILD_ERROR;
             }

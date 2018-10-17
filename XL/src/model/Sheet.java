@@ -7,10 +7,11 @@ import java.util.*;
 
 public class Sheet extends Observable implements Environment {
     private Map<String, Cell> cellMap;
-    String exception;
+    String status;
 
     public Sheet() {
         cellMap = new TreeMap<>();
+        status = "";
     }
 
     public Optional<Cell> getCell(String address) {
@@ -20,26 +21,42 @@ public class Sheet extends Observable implements Environment {
     public void add(String address, String value) {
         Cell cell = CellFactory.cell(value);
         if (!isRecursive(address, cell)) {
-            cellMap.put(address, cell);
+            try{
+                cellMap.put(address, cell);
+            }catch(NullPointerException e) {
+                status = e.toString();
+            }
         }
         setChanged();
         notifyObservers();
     }
 
-    public String getException(){
-        return exception;
+    public String getStatus(){
+        return status;
+    }
+
+    public void clearStatus(){
+        status = "";
     }
 
     public void clearAll() {
+        status = "     All cleared";
         cellMap = new TreeMap<>();
         setChanged();
         notifyObservers();
     }
 
-    public void load(Map<String, String> newCellMap) {
+    public void load(Map<String, String> newCellMap, String path) {
+        status = "   loaded " + path;
         for (Map.Entry<String, String> entry : newCellMap.entrySet()) {
-            this.add(entry.getKey(), entry.getValue());
+            try{
+                this.add(entry.getKey(), entry.getValue());
+            }catch(XLException e){
+                status = e.toString();
+            }
         }
+        setChanged();
+        notifyObservers();
     }
 
     public Map<String, Cell> getMap() {
@@ -56,6 +73,10 @@ public class Sheet extends Observable implements Environment {
         return getCell(address).map(x -> x.cellValue(this)).orElse(0.0);
     }
 
+    public boolean isPresent(String address){
+        return cellMap.containsKey(address);
+    }
+
 
     private boolean isRecursive(String address, Cell cell) {
         Cell temp = cellMap.get(address);
@@ -64,8 +85,12 @@ public class Sheet extends Observable implements Environment {
         try {
             cell.cellValue(this);
         } catch (XLException e) {
-            exception = e.toString();
+            status = e.toString();
             cellMap.put(address, temp);
+            return true;
+        }catch(NullPointerException e){
+            status = e.toString();
+            cellMap.put(address,temp);
             return true;
         }
         cellMap.put(address, temp);

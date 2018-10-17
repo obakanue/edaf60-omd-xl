@@ -15,10 +15,6 @@ public class StatusLabel extends ColoredLabel implements Observer {
     }
 
     public void update(Observable observable, Object object) {
-        set(sheet.getException());
-    }
-
-    public void set(String s) {
-        setText("\tError: " + s);
+        setText(sheet.getStatus());
     }
 }

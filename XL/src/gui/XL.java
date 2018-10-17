@@ -73,8 +73,8 @@ public class XL extends JFrame implements Printable {
         xlList.setChanged();
     }
 
-    public void load(Map<String, String> map) {
-        sheet.load(map);
+    public void load(Map<String, String> map, String path) {
+        sheet.load(map, path);
     }
 
     public static void main(String[] args) {

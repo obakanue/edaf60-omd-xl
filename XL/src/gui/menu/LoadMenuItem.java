@@ -20,13 +20,11 @@ import util.XLException;
 
 class LoadMenuItem extends gui.menu.OpenMenuItem {
 
-    private CellFactory loadCellFactory;
     public Sheet sheet;
 
 
     public LoadMenuItem(XL xl, StatusLabel statusLabel) {
         super(xl, statusLabel, "Load");
-        loadCellFactory = new CellFactory();
         sheet = xl.getSheet();
     }
 
@@ -43,7 +41,7 @@ class LoadMenuItem extends gui.menu.OpenMenuItem {
         } catch (XLException e) {
             //TODO
         }
-        xl.load(loadMap);
+        xl.load(loadMap, path);
     }
 
     protected int openDialog(JFileChooser fileChooser) {

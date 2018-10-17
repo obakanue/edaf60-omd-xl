@@ -69,7 +69,7 @@ public class SlotLabels extends GridPanel implements Observer {
                 }
             }
         }
-        for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
+        /*for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
             String address = entry.getKey();
             Cell cell = entry.getValue();
             for (SlotLabel sl : labelList) {
@@ -82,6 +82,6 @@ public class SlotLabels extends GridPanel implements Observer {
                     }
                 }
             }
-        }
+        }*/
     }
 }

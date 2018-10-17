@@ -68,8 +68,9 @@ It is also possible closing the program when pressing the "X" in the upper right
 
 ### Clearing a cell
 The user presses the "Edit" button and then "Clear" after selecting the cell the user wishes to clear.
-This results in the cell turning empty. It is also possible to simply delete the information manually
-selecting the cell and then deleting the text in the editor text field.
+This results in the cell turning empty.
+
+It is not possible to clear a cell by deleting information in editor.
 
 ### Clearing an XL sheet
 The user presses the "Edit" button and then "Clear all". This results in the whole sheet being emptied from

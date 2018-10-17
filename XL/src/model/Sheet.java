@@ -15,7 +15,8 @@ public class Sheet extends Observable implements Environment{
         return Optional.ofNullable(cellMap.get(address));
     }
 
-    public void add(String address, Cell cell){
+    public void add(String address, String value){
+        Cell cell = CellFactory.cell(value);
         if(!isRecursive(address, cell)){
             cellMap.put(address, cell);
         }
@@ -27,6 +28,16 @@ public class Sheet extends Observable implements Environment{
         cellMap = new TreeMap<>();
         setChanged();
         notifyObservers();
+    }
+
+    public void load(Map<String, Cell> newCellMap){
+        Map<String, Cell> temp = cellMap;
+        this.cellMap = newCellMap;
+        setChanged();
+        notifyObservers();
+
+        /*for (Map.Entry<String, Cell> entry : temp.entrySet()) {
+        }*/
     }
 
     public Map<String, Cell> getMap() {

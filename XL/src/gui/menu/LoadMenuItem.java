@@ -13,8 +13,8 @@ import javax.swing.JFileChooser;
 import model.CellFactory;
 import model.Sheet;
 import model.Cell;
-
-
+import util.XLBufferedReader;
+import util.XLException;
 
 
 class LoadMenuItem extends gui.menu.OpenMenuItem {
@@ -26,26 +26,26 @@ class LoadMenuItem extends gui.menu.OpenMenuItem {
     public LoadMenuItem(XL xl, StatusLabel statusLabel) {
         super(xl, statusLabel, "Load");
         loadCellFactory = new CellFactory();
-        sheet = new Sheet();
     }
 
-    protected void action(String path) throws FileNotFoundException {
+    protected void action(String path) {
+        XL loaded = new XL(xl);
+        XLBufferedReader reader = null;
         try {
-            BufferedReader file = new BufferedReader(new FileReader(path));
-            try {
-                while (file.ready()) {
-                String line = file.readLine();
-                int separator = line.indexOf('=');
-                String address = line.substring(0, separator);
-                String value = line.substring(separator + 1);
-                sheet.add(address, loadCellFactory.cell(sheet, address, value));
-                  }
-             }catch (IOException e){
-                e.getMessage();
-                }
+            reader = new XLBufferedReader(path);
         } catch (FileNotFoundException e) {
             statusLabel.setText("Unable to load file " + e.getMessage());
         }
+        Map<String, Cell> loadMap = new TreeMap<>();
+        try{
+            for (Map.Entry<String, Cell> entry : xl.getSheet().getMap().entrySet()) {
+                loadMap.put(entry.getKey(), entry.getValue());
+            }
+            reader.load(loadMap);
+        }catch (XLException e){
+            //TODO
+        }
+        loaded.load(loadMap);
     }
 
     protected int openDialog (JFileChooser fileChooser){

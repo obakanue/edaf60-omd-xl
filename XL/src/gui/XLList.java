@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Observable;
 
 public class XLList extends Observable implements Iterable<XL> {
-    private List<XL> list = new ArrayList<XL>();
+    private List<XL> list = new ArrayList<>();
 
     public void add(XL xl) {
         list.add(xl);

@@ -5,7 +5,6 @@ import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 
 import gui.menu.XLMenuBar;
-import model.Cell;
 
 import model.Sheet;
 

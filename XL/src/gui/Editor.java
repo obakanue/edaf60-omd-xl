@@ -13,14 +13,12 @@ import gui.CurrentCell;
 import util.XLException;
 
 public class Editor extends JTextField implements Observer {
-    private CellFactory cellFactory;
     private Sheet sheet;
     private CurrentCell currentCell;
 
     public Editor(Sheet sheet, CurrentCell currentCell) {
         this.sheet = sheet;
         this.currentCell = currentCell;
-        cellFactory = new CellFactory();
         setBackground(Color.WHITE);
         currentCell.addObserver(this);
         addActionListener(e -> {

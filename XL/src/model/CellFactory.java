@@ -13,13 +13,11 @@ public class CellFactory extends Sheet {
         if (value.length() == 0) {
             return null;
         } else if (value.startsWith("#")) {
-            //sheet.add(addr, new CommentCell(value));   // bryter mot SRP
             return new CommentCell(value);
         } else {
             try {
                 Expr expr = new ExprParser().build(value);
                 return new ExprCell(expr);
-                //sheet.add(addr, new ExprCell(expr));  // bryter mot SRP
             } catch (IOException e) {
                 throw XLException.CELLBUILD_ERROR;
             }

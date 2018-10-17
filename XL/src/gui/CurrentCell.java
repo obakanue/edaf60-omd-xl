@@ -4,7 +4,6 @@ import java.awt.*;
 import java.util.*;
 
 public class CurrentCell extends Observable {
-    private String address;
     private SlotLabel slotLabel;
 
     public CurrentCell() {

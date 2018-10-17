@@ -18,14 +18,12 @@ import javax.swing.SwingConstants;
 public class SlotLabels extends GridPanel implements Observer {
     private List<SlotLabel> labelList;
     private Sheet sheet;
-    private CurrentCell currentCell;
     private int rows;
     private int cols;
 
     public SlotLabels(int rows, int cols, CurrentCell currentCell, Sheet sheet) {
         super(rows + 1, cols);
         this.sheet = sheet;
-        this.currentCell = currentCell;
         this.rows = rows;
         this.cols = cols;
         sheet.addObserver(this);

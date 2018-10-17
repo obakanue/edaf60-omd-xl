@@ -7,6 +7,7 @@ import java.util.*;
 
 public class Sheet extends Observable implements Environment {
     private Map<String, Cell> cellMap;
+    String exception;
 
     public Sheet() {
         cellMap = new TreeMap<>();
@@ -25,6 +26,10 @@ public class Sheet extends Observable implements Environment {
         notifyObservers();
     }
 
+    public String getException(){
+        return exception;
+    }
+
     public void clearAll() {
         cellMap = new TreeMap<>();
         setChanged();
@@ -35,9 +40,6 @@ public class Sheet extends Observable implements Environment {
         for (Map.Entry<String, String> entry : newCellMap.entrySet()) {
             this.add(entry.getKey(), entry.getValue());
         }
-    }
-
-    public void startObserving() {
     }
 
     public Map<String, Cell> getMap() {
@@ -62,6 +64,7 @@ public class Sheet extends Observable implements Environment {
         try {
             cell.cellValue(this);
         } catch (XLException e) {
+            exception = e.toString();
             cellMap.put(address, temp);
             return true;
         }

@@ -59,8 +59,8 @@ public class SlotLabels extends GridPanel implements Observer {
         for (SlotLabel sl : labelList) {
             if (!tempMap.containsKey(sl.getAddress())) {
                 sl.setText("");
-            } else {
-                sl.setText(Double.toString(tempMap.get(sl.getAddress()).cellValue(sheet)));
+            } else{
+                sl.setText(Double.toString(sheet.value(sl.getAddress())));
             }
         }
         for (Map.Entry<String, Cell> entry : tempMap.entrySet()) {
@@ -69,7 +69,6 @@ public class SlotLabels extends GridPanel implements Observer {
             for (SlotLabel sl : labelList) {
                 if (sl.getAddress() == address) {
                     if (cell instanceof CommentCell) {
-                        ;
                         String cellString = cell.toString();
                         sl.setText(cellString.substring(1, cellString.length()));
                     } else {

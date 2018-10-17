@@ -20,9 +20,9 @@ import javax.swing.JPanel;
 public class XL extends JFrame implements Printable {
     private static final int ROWS = 10, COLUMNS = 8;
     private XLCounter counter;
-    private StatusLabel statusLabel = new StatusLabel();
     private XLList xlList;
     private Sheet sheet;
+    private StatusLabel statusLabel;
     private CurrentCell currentCell;
 
     public XL(XL oldXL) {
@@ -34,6 +34,7 @@ public class XL extends JFrame implements Printable {
         this.xlList = xlList;
         this.counter = counter;
         this.sheet = new Sheet();
+        this.statusLabel = new StatusLabel(sheet);
         this.currentCell = new CurrentCell();
         xlList.add(this);
         counter.increment();
